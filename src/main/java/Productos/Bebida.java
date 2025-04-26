@@ -1,12 +1,9 @@
 package Productos;
 
-public abstract class Bebida{
+public abstract class Bebida extends Producto{
     private int serie;
     public Bebida(int serie){
-        this.serie=serie;
+        super(serie);
     }
-    public int getSerie(){
-        return serie;
-    }
-    public abstract String beber();
+
 }

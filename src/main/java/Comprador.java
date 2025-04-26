@@ -8,7 +8,7 @@ public class Comprador{
     public Comprador(Moneda m, int cualBebida, Expendedor exp){
         Bebida myBeb=exp.comprarBebida(m,cualBebida);
         if (myBeb!=null)
-            sonido=myBeb.beber();
+            sonido=myBeb.consumir();
 
         while (true) {
             Moneda monedas_vuelto = exp.getVuelto();
