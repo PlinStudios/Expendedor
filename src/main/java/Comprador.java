@@ -1,11 +1,12 @@
 import Monedas.*;
 import Productos.*;
+import myExceptions.*;
 
 public class Comprador{
     private String sonido;
     private int vuelto=0;
 
-    public Comprador(Moneda m, int cualBebida, Expendedor exp){
+    public Comprador(Moneda m, int cualBebida, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Bebida myBeb=exp.comprarBebida(m,cualBebida);
         if (myBeb!=null)
             sonido=myBeb.beber();

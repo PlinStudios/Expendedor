@@ -1,5 +1,6 @@
 import Monedas.*;
 import Productos.*;
+import myExceptions.*;
 
 public class Expendedor{
     public static final int  COCA=1;
@@ -22,24 +23,31 @@ public class Expendedor{
             sprite.addElement(new Sprite(200+i));
         }
     }
-    public Bebida comprarBebida(Moneda m, int type){
+    public Bebida comprarBebida(Moneda m, int type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         //devuelve bebida
         Bebida myBeb=null;
-        if (m!=null)
-            if (m.getValor()>=precio)
-                if (type==1)
+        if (m!=null) {
+            if (m.getValor() >= precio) {
+                if (type == 1)
                     myBeb = coca.getElement();
-                else if (type==2)
+                else if (type == 2)
                     myBeb = sprite.getElement();
 
-        //anade monedas
-        if (myBeb!=null) {
-            int monedas = (m.getValor() - precio) / 100;
-            for (int i = 0; i < monedas; i++) {
-                monVuelto.addElement(new Moneda100());
+                if (myBeb==null)
+                    throw new NoHayProductoException(type);
+                else{
+                    //añade monedas
+                    int monedas = (m.getValor() - precio) / 100;
+                    for (int i = 0; i < monedas; i++) {
+                        monVuelto.addElement(new Moneda100());
+                    }
+                }
+            } else {
+                monVuelto.addElement(m);
+                throw new PagoInsuficienteException(m.getValor(), precio);
             }
-        }else{
-            monVuelto.addElement(m);
+        } else {
+            throw new PagoIncorrectoException();
         }
 
         return myBeb;

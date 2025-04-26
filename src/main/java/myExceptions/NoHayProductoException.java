@@ -1,7 +1,7 @@
 package myExceptions;
 
 public class NoHayProductoException extends Exception {
-    public NoHayProductoException(String product){
-        super("El producto "+product+" esta agotado");
+    public NoHayProductoException(int product){
+        super("El producto de indice "+product+" esta agotado");
     }
 }
