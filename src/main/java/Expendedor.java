@@ -3,29 +3,20 @@ import Productos.*;
 import myExceptions.*;
 
 public class Expendedor{
-    //public static final int  COCA=1;   //placeholders antes de crear enum
-    //public static final int  SPRITE=2;
-    //public static final int  FANTA=3;
-    //public static final int  SUPER8=4;
-    //public static final int  SNICKER=5;
-
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
     private Deposito<Producto> fanta;
     private Deposito<Producto> super8;
     private Deposito<Producto> snickers;
     private Deposito<Moneda> monVuelto;
-    private int precio;
 
-    public Expendedor(int howmany, int precio){
+    public Expendedor(int howmany){
         coca = new Deposito<Producto>();
         sprite = new Deposito<Producto>();
         fanta = new Deposito<Producto>();
         super8 = new Deposito<Producto>();
         snickers = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
-
-        this.precio=precio;
 
         for (int i=0; i<howmany; i++){
             coca.addElement(new CocaCola(100+i));
@@ -40,7 +31,7 @@ public class Expendedor{
         //devuelve producto
         Producto mySnack=null;
         if (m!=null) {
-            if (m.getValor() >= precio) {
+            if (m.getValor() >= type.getPrecio()) {
                 switch(type) {
                     case COCA:
                         mySnack = coca.getElement();
@@ -65,14 +56,14 @@ public class Expendedor{
                     throw new NoHayProductoException(type);
                 else{
                     //añade monedas
-                    int monedas = (m.getValor() - precio) / 100;
+                    int monedas = (m.getValor() - type.getPrecio()) / 100;
                     for (int i = 0; i < monedas; i++) {
                         monVuelto.addElement(new Moneda100());
                     }
                 }
             } else {
                 monVuelto.addElement(m);
-                throw new PagoInsuficienteException(m.getValor(), precio);
+                throw new PagoInsuficienteException(m.getValor(), type.getPrecio());
             }
         } else {
             throw new PagoIncorrectoException();

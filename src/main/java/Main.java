@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args){
         try {
             Moneda coin = new Moneda500();
-            Expendedor exp = new Expendedor(1, 300);
+            Expendedor exp = new Expendedor(1);
             Comprador cmp = new Comprador(coin, Precios.SPRITE, exp);
             System.out.println(cmp.queConsumiste());
             System.out.println(cmp.cuantoVuelto());
