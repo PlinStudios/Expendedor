@@ -17,15 +17,13 @@ public class Expendedor{
     private Deposito<Moneda> monVuelto;
     private int precio;
 
-    public Expendedor(int howmany, int precio){
+    public Expendedor(int howmany){
         coca = new Deposito<Producto>();
         sprite = new Deposito<Producto>();
         fanta = new Deposito<Producto>();
         super8 = new Deposito<Producto>();
         snickers = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
-
-        this.precio=precio;
 
         for (int i=0; i<howmany; i++){
             coca.addElement(new CocaCola(100+i));
@@ -39,6 +37,7 @@ public class Expendedor{
     public Producto comprarProducto(Moneda m, Precios type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         //devuelve producto
         Producto mySnack=null;
+        precio= type.getPrecio();
         if (m!=null) {
             if (m.getValor() >= precio) {
                 switch(type) {
