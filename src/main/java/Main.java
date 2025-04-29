@@ -20,9 +20,16 @@ public class Main {
         Moneda coin = new Moneda500();
         Expendedor exp = new Expendedor(2);
         TryCompra(coin,Precios.SUPER8,exp);
+        //pago insuficiento
         TryCompra(coin,Precios.FANTA,exp);
         TryCompra(coin,Precios.SNICKERS,exp);
-        //al vuelto se suma lo de las compras fallidas
+        //cuando falla la compra toma el vuelto, asi que no se suma
         TryCompra(coin,Precios.SUPER8,exp);
+        Moneda coin2 = new Moneda1500();
+        //agotado
+        TryCompra(coin2,Precios.SUPER8,exp);
+        TryCompra(coin2,Precios.FANTA,exp);
+        //pago incorrecto
+        TryCompra(null,Precios.SUPER8,exp);
     }
 }
