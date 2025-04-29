@@ -3,11 +3,11 @@ import Productos.*;
 import myExceptions.*;
 
 public class Expendedor{
-    public static final int  COCA=1;   //placeholders antes de crear enum
-    public static final int  SPRITE=2;
-    public static final int  FANTA=3;
-    public static final int  SUPER8=4;
-    public static final int  SNICKER=5;
+    //public static final int  COCA=1;   //placeholders antes de crear enum
+    //public static final int  SPRITE=2;
+    //public static final int  FANTA=3;
+    //public static final int  SUPER8=4;
+    //public static final int  SNICKER=5;
 
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
@@ -36,22 +36,31 @@ public class Expendedor{
         }
     }
 
-    public Producto comprarProducto(Moneda m, int type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
+    public Producto comprarProducto(Moneda m, Precios type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         //devuelve producto
         Producto mySnack=null;
         if (m!=null) {
             if (m.getValor() >= precio) {
-                if (type==1)
-                    mySnack = coca.getElement();
-                else if (type==2)
-                    mySnack = sprite.getElement();
-                else if (type==3)
-                    mySnack = fanta.getElement();
-                else if (type==4)
-                    mySnack = super8.getElement();
-                else if (type==5)
-                    mySnack = snickers.getElement();
-
+                switch(type) {
+                    case COCA:
+                        mySnack = coca.getElement();
+                        break;
+                    case SPRITE:
+                        mySnack = sprite.getElement();
+                        break;
+                    case FANTA:
+                        mySnack = fanta.getElement();
+                        break;
+                    case SUPER8:
+                        mySnack = super8.getElement();
+                        break;
+                    case SNICKERS:
+                        mySnack = snickers.getElement();
+                        break;
+                    default:
+                        mySnack=null;
+                        break;
+                }
                 if (mySnack==null)
                     throw new NoHayProductoException(type);
                 else{
