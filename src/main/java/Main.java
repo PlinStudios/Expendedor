@@ -3,33 +3,11 @@ import Productos.*;
 import myExceptions.*;
 
 public class Main {
-    public static void main(String[] args){
+    static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {
-            Moneda coin = new Moneda500();
-            Expendedor exp = new Expendedor(1);
-            Comprador cmp = new Comprador(coin, Precios.SPRITE, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            cmp = new Comprador(coin, Precios.FANTA, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            cmp = new Comprador(coin, Precios.SPRITE, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            cmp = new Comprador(coin, Precios.COCA, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            cmp = new Comprador(coin, Precios.SNICKERS, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            coin = new Moneda100();
-            cmp = new Comprador(coin, Precios.SUPER8, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
-            coin = new Moneda1000();
-            cmp = new Comprador(coin, Precios.SUPER8, exp);
-            System.out.println(cmp.queConsumiste());
-            System.out.println(cmp.cuantoVuelto());
+        Comprador cmp = new Comprador(m, type, exp);
+        System.out.println("El Producto es "+cmp.queConsumiste());
+        System.out.println("El vuelto es de "+cmp.cuantoVuelto()+" pesos");
         }catch (NoHayProductoException e){
             System.out.println(e.getMessage());
         }catch (PagoIncorrectoException e){
@@ -37,5 +15,14 @@ public class Main {
         }catch (PagoInsuficienteException e){
             System.out.println(e.getMessage());
         }
+    }
+    public static void main(String[] args){
+        Moneda coin = new Moneda500();
+        Expendedor exp = new Expendedor(2);
+        TryCompra(coin,Precios.SUPER8,exp);
+        TryCompra(coin,Precios.FANTA,exp);
+        TryCompra(coin,Precios.SNICKERS,exp);
+        //al vuelto se suma lo de las compras fallidas
+        TryCompra(coin,Precios.SUPER8,exp);
     }
 }
