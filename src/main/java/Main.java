@@ -9,6 +9,9 @@ public class Main {
         Comprador cmp = new Comprador(coin,Expendedor.SPRITE,exp);
         System.out.println(cmp.queConsumiste());
         System.out.println(cmp.cuantoVuelto());
+        cmp = new Comprador(coin,Expendedor.FANTA,exp);
+        System.out.println(cmp.queConsumiste());
+        System.out.println(cmp.cuantoVuelto());
         cmp = new Comprador(coin,Expendedor.SPRITE,exp);
         System.out.println(cmp.queConsumiste());
         System.out.println(cmp.cuantoVuelto());

@@ -3,13 +3,15 @@ import Productos.*;
 import myExceptions.*;
 
 public class Expendedor{
-    public static final int  COCA=1;
+    public static final int  COCA=1;   //placeholders antes de crear enum
     public static final int  SPRITE=2;
-    public static final int  SUPER8=3;
-    public static final int  SNICKER=4;
+    public static final int  FANTA=3;
+    public static final int  SUPER8=4;
+    public static final int  SNICKER=5;
 
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
+    private Deposito<Producto> fanta;
     private Deposito<Producto> super8;
     private Deposito<Producto> snickers;
     private Deposito<Moneda> monVuelto;
@@ -18,6 +20,7 @@ public class Expendedor{
     public Expendedor(int howmany, int precio){
         coca = new Deposito<Producto>();
         sprite = new Deposito<Producto>();
+        fanta = new Deposito<Producto>();
         super8 = new Deposito<Producto>();
         snickers = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
@@ -27,8 +30,9 @@ public class Expendedor{
         for (int i=0; i<howmany; i++){
             coca.addElement(new CocaCola(100+i));
             sprite.addElement(new Sprite(200+i));
-            super8.addElement(new Super8(300+i));
-            snickers.addElement(new Snickers(400+i));
+            fanta.addElement(new Fanta(300+i));
+            super8.addElement(new Super8(400+i));
+            snickers.addElement(new Snickers(500+i));
         }
     }
 
@@ -42,8 +46,10 @@ public class Expendedor{
                 else if (type==2)
                     mySnack = sprite.getElement();
                 else if (type==3)
-                    mySnack = super8.getElement();
+                    mySnack = fanta.getElement();
                 else if (type==4)
+                    mySnack = super8.getElement();
+                else if (type==5)
                     mySnack = snickers.getElement();
 
                 if (mySnack==null)
