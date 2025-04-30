@@ -1,5 +1,5 @@
 package Productos;
-
+/**Precios constantes que serán aplicados a productos*/
 public enum Precios {
     COCA(1000),
     SPRITE(900),
@@ -10,6 +10,8 @@ public enum Precios {
     Precios(int precio) {
         this.precio= precio;
     }
+
+    /**@return retorna precio asociado al producto*/
     public int getPrecio(){
         return precio;
     }
