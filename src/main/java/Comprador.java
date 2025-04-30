@@ -7,16 +7,27 @@ public class Comprador{
     private int vuelto=0;
 
     public Comprador(Moneda m, Precios cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto mySnack=exp.comprarProducto(m,cualProducto);
-        if (mySnack!=null)
-            sonido=mySnack.consumir();
+        try {
+            Producto mySnack = exp.comprarProducto(m, cualProducto);
+            if (mySnack != null)
+                sonido = mySnack.consumir();
 
-        while (true) {
-            Moneda monedas_vuelto = exp.getVuelto();
-            if (monedas_vuelto!=null)
-                vuelto += monedas_vuelto.getValor();
-            else
-                break;
+            while (true) {
+                Moneda monedas_vuelto = exp.getVuelto();
+                if (monedas_vuelto != null)
+                    vuelto += monedas_vuelto.getValor();
+                else
+                    break;
+            }
+        }catch (NoHayProductoException | PagoInsuficienteException | PagoIncorrectoException e){
+            while (true) {
+                Moneda monedas_vuelto = exp.getVuelto();
+                if (monedas_vuelto != null)
+                    vuelto += monedas_vuelto.getValor();
+                else
+                    break;
+            }
+            throw e;
         }
 
     }
