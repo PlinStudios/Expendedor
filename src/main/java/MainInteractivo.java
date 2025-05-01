@@ -45,7 +45,12 @@ public class MainInteractivo {
     /**Metodo que imprime un "menú" con indices y precio de los productos*/
     static void TablaProductos(){
         System.out.println("Presione 0 para salir");
-        System.out.println("1.- Coca Cola $1000\n2.- Sprite $900\n3.- Fanta $800\n4.- Snickers $1000\n5.- Super8 $300");
+        
+        int i=0;
+        for (Precios p : Precios.values()){
+            i++;
+            System.out.println(i+".- "+p+" $"+p.getPrecio());
+        }
     }
     public static void main(String[] args){
         Precios[] escoger;
