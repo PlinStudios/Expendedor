@@ -2,6 +2,8 @@ import Monedas.*;
 import Productos.*;
 import myExceptions.*;
 
+/**Expendedor que guarda productos y permite comprarlos
+ */
 public class Expendedor{
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
@@ -10,6 +12,11 @@ public class Expendedor{
     private Deposito<Producto> snickers;
     private Deposito<Moneda> monVuelto;
 
+    /**Crea los depositos para cada producto
+     * y los llena con el producto correspondiente
+     *
+     * @param howmany Determina cuantos productos se crearan para cada Deposito
+     */
     public Expendedor(int howmany){
         coca = new Deposito<Producto>();
         sprite = new Deposito<Producto>();
@@ -27,6 +34,15 @@ public class Expendedor{
         }
     }
 
+    /** Compra un producto desde el Expendedor y genera el vuelto
+     *
+     * @param m Moneda usada para comprar
+     * @param type Tipo de producto a comprar
+     * @return Producto comprado, null si ocurre un error
+     * @throws PagoInsuficienteException Si el dinero no es suficiente para comprar el producto
+     * @throws PagoIncorrectoException Si se intenta pagar sin una moneda
+     * @throws NoHayProductoException Si el producto esta agotado
+     */
     public Producto comprarProducto(Moneda m, Precios type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         //devuelve producto
         Producto mySnack=null;
@@ -71,6 +87,12 @@ public class Expendedor{
 
         return mySnack;
     }
+
+    /**Sirve para obtener una Moneda del deposito de vuelto,
+     * es necesario llamarla hasta que retorne null
+     *
+     * @return Moneda de vuelto, null si ya no queda vuelto
+     */
     public Moneda getVuelto(){
         return monVuelto.getElement();
     }

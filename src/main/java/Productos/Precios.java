@@ -11,7 +11,8 @@ public enum Precios {
         this.precio= precio;
     }
 
-    /**@return retorna precio asociado al producto*/
+    /**Obtiene el precio del producto
+     * @return retorna precio asociado al producto*/
     public int getPrecio(){
         return precio;
     }

@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class MainInteractivo {
     /**Metodo que permite que reemplzada try-catch puestos manualmente,
-     * se le entregan los paramétros requeridos por Comprador y este internamente lo llama y lanza y atrapa posibles excepciones*/
-    /**
+     * se le entregan los paramétros requeridos por Comprador y este internamente lo llama y lanza y atrapa posibles excepciones
+     *
      * @param m Moneda con la que se intenta hacer la compra
      * @param type tipo de producto seleccionado
      * @param exp Expendedor con el que interactuaremos
      */
-    static void TryCompra(Moneda m, Precios type, Expendedor exp){
+    public static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {
             Comprador cmp = new Comprador(m, type, exp);
             System.out.println("El Producto es "+cmp.queConsumiste());
@@ -31,7 +31,7 @@ public class MainInteractivo {
      * @param valor valor de la Moneda con la que se quiere hacer la compra
      * @return retorna Moneda con valor deseado si el input corresponde con valor de monedas existentes,de lo contrario, retorna null
      */
-    static Moneda QueMoneda(int valor){
+    public static Moneda QueMoneda(int valor){
         Moneda coin;
         if(valor==100){coin=new Moneda100();}
         else if(valor==500){coin=new Moneda500();}
@@ -43,9 +43,9 @@ public class MainInteractivo {
         return coin;
     }
     /**Metodo que imprime un "menú" con indices y precio de los productos*/
-    static void TablaProductos(){
+    public static void TablaProductos(){
         System.out.println("Presione 0 para salir");
-        
+
         int i=0;
         for (Precios p : Precios.values()){
             i++;

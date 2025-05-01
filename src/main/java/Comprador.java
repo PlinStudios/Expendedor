@@ -2,10 +2,21 @@ import Monedas.*;
 import Productos.*;
 import myExceptions.*;
 
+/**Hace una solo compra a un Expendedor
+ */
 public class Comprador{
     private String sonido;
     private int vuelto=0;
 
+    /**Hace una compra a un Expendedor, pagando con una Moneda para conseguir un Producto y retira el vuelto
+     *
+     * @param m Moneda para pagar
+     * @param cualProducto Producto a comprar
+     * @param exp Expendedor al que va a comprar
+     * @throws NoHayProductoException
+     * @throws PagoInsuficienteException
+     * @throws PagoIncorrectoException
+     */
     public Comprador(Moneda m, Precios cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         try {
             Producto mySnack = exp.comprarProducto(m, cualProducto);
@@ -31,9 +42,19 @@ public class Comprador{
         }
 
     }
+
+    /**Cuanto vuelto obtuvo despues de la compra
+     *
+     * @return vuelto en numero entero
+     */
     public int cuantoVuelto(){
         return vuelto;
     }
+
+    /**Que producto se obtuvo de la compra
+     *
+     * @return string con el nombre del producto
+     */
     public String queConsumiste(){
         return sonido;
     }

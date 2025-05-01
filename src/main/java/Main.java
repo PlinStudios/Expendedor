@@ -3,11 +3,16 @@ import Productos.*;
 import myExceptions.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
-    static void TryCompra(Moneda m, Precios type, Expendedor exp){
+    /**Usa try-catch para hacer una compra y mostrar los errores si es que hay
+     *
+     * @param m Moneda con la que se intenta hacer la compra
+     * @param type tipo de producto seleccionado
+     * @param exp Expendedor con el que interactuaremos
+     */
+    public static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {
         Comprador cmp = new Comprador(m, type, exp);
         System.out.println("El Producto es "+cmp.queConsumiste());
@@ -20,6 +25,10 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
+
+    /**Main que prueba comprar y los distintos errores que pueden ocurrir,
+     * ademas prueba la posibilidad de ordenar monedas por valor
+     */
     public static void main(String[] args){
         Moneda coin = new Moneda500();
         Expendedor exp = new Expendedor(2);
