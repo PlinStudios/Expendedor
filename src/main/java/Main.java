@@ -2,6 +2,10 @@ import Monedas.*;
 import Productos.*;
 import myExceptions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Main {
     static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {
@@ -31,5 +35,19 @@ public class Main {
         TryCompra(coin2,Precios.FANTA,exp);
         //pago incorrecto
         TryCompra(null,Precios.SUPER8,exp);
+
+        //prueba ordenado de monedas
+        ArrayList<Moneda> monedero = new ArrayList<Moneda>();
+        monedero.add(new Moneda1500());
+        monedero.add(new Moneda1000());
+        monedero.add(new Moneda100());
+        monedero.add(new Moneda500());
+        monedero.add(new Moneda500());
+        monedero.add(new Moneda100());
+        System.out.println("Monedas sin ordenar");
+        System.out.println(monedero);
+        System.out.println("Ordenadas por valor");
+        Collections.sort(monedero);
+        System.out.println(monedero);
     }
 }

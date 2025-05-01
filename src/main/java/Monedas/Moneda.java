@@ -1,6 +1,6 @@
 package Monedas;
 
-public abstract class Moneda{
+public abstract class Moneda implements Comparable<Moneda>{
     public Moneda(){
     }
 
@@ -11,4 +11,9 @@ public abstract class Moneda{
 
     /**@return una vez instanciado retorna valor de la Moneda*/
     public abstract int getValor();
+
+    @Override
+    public int compareTo(Moneda m){
+        return this.getValor() - m.getValor();
+    }
 }
