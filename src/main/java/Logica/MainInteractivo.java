@@ -1,17 +1,19 @@
-import Monedas.*;
-import Productos.Precios;
-import myExceptions.NoHayProductoException;
-import myExceptions.PagoIncorrectoException;
-import myExceptions.PagoInsuficienteException;
+package Logica;
+
+import Logica.Monedas.*;
+import Logica.Productos.Precios;
+import Logica.myExceptions.NoHayProductoException;
+import Logica.myExceptions.PagoIncorrectoException;
+import Logica.myExceptions.PagoInsuficienteException;
 import java.util.Scanner;
 
 public class MainInteractivo {
     /**Metodo que permite que reemplzada try-catch puestos manualmente,
-     * se le entregan los paramétros requeridos por Comprador y este internamente lo llama y lanza y atrapa posibles excepciones
+     * se le entregan los paramétros requeridos por Logica.Comprador y este internamente lo llama y lanza y atrapa posibles excepciones
      *
      * @param m Moneda con la que se intenta hacer la compra
      * @param type tipo de producto seleccionado
-     * @param exp Expendedor con el que interactuaremos
+     * @param exp Logica.Expendedor con el que interactuaremos
      */
     public static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {

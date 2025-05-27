@@ -1,4 +1,4 @@
-package myExceptions;
+package Logica.myExceptions;
 
 public class PagoInsuficienteException extends Exception {
     public PagoInsuficienteException(int pago, int precio){

@@ -1,6 +1,8 @@
-import Monedas.*;
-import Productos.*;
-import myExceptions.*;
+package Logica;
+
+import Logica.Monedas.*;
+import Logica.Productos.*;
+import Logica.myExceptions.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +12,7 @@ public class Main {
      *
      * @param m Moneda con la que se intenta hacer la compra
      * @param type tipo de producto seleccionado
-     * @param exp Expendedor con el que interactuaremos
+     * @param exp Logica.Expendedor con el que interactuaremos
      */
     public static void TryCompra(Moneda m, Precios type, Expendedor exp){
         try {
@@ -26,7 +28,7 @@ public class Main {
         }
     }
 
-    /**Main que prueba comprar y los distintos errores que pueden ocurrir,
+    /**Logica.Main que prueba comprar y los distintos errores que pueden ocurrir,
      * ademas prueba la posibilidad de ordenar monedas por valor
      */
     public static void main(String[] args){
@@ -53,7 +55,7 @@ public class Main {
         monedero.add(new Moneda500());
         monedero.add(new Moneda500());
         monedero.add(new Moneda100());
-        System.out.println("Monedas sin ordenar");
+        System.out.println("Logica.Monedas sin ordenar");
         System.out.println(monedero);
         System.out.println("Ordenadas por valor");
         Collections.sort(monedero);

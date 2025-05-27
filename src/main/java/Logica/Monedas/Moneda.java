@@ -1,4 +1,4 @@
-package Monedas;
+package Logica.Monedas;
 
 public abstract class Moneda implements Comparable<Moneda>{
     public Moneda(){

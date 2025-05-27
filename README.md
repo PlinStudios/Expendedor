@@ -1,4 +1,4 @@
-# Expendedor
+# Logica.Expendedor
 
 # nombres:
     Antonella Francisca Pincheira Poblete

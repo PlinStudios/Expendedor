@@ -1,4 +1,4 @@
-package Productos;
+package Logica.Productos;
 /**Precios constantes que serán aplicados a productos*/
 public enum Precios {
     COCA(1000),

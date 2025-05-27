@@ -1,4 +1,4 @@
-package Productos;
+package Logica.Productos;
 
 public abstract class Bebida extends Producto{
     private int serie;

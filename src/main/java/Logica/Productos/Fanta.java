@@ -1,13 +1,13 @@
-package Productos;
+package Logica.Productos;
 
-public class Snickers extends Dulce{
+public class Fanta extends Bebida {
     /**@param serie numero de serie asignado en la creación del objeto*/
-    public Snickers(int serie){
+    public Fanta(int serie){
         super(serie);
     }
     /**@return retorna string con nombre del producto*/
     @Override
     public String consumir(){
-        return "snickers";
+        return "fanta";
     }
 }

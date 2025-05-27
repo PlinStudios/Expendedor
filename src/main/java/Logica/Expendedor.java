@@ -1,8 +1,10 @@
-import Monedas.*;
-import Productos.*;
-import myExceptions.*;
+package Logica;
 
-/**Expendedor que guarda productos y permite comprarlos
+import Logica.Monedas.*;
+import Logica.Productos.*;
+import Logica.myExceptions.*;
+
+/**Logica.Expendedor que guarda productos y permite comprarlos
  */
 public class Expendedor{
     private Deposito<Producto> coca;
@@ -15,7 +17,7 @@ public class Expendedor{
     /**Crea los depositos para cada producto
      * y los llena con el producto correspondiente
      *
-     * @param howmany Determina cuantos productos se crearan para cada Deposito
+     * @param howmany Determina cuantos productos se crearan para cada Logica.Deposito
      */
     public Expendedor(int howmany){
         coca = new Deposito<Producto>();
@@ -34,7 +36,7 @@ public class Expendedor{
         }
     }
 
-    /** Compra un producto desde el Expendedor y genera el vuelto
+    /** Compra un producto desde el Logica.Expendedor y genera el vuelto
      *
      * @param m Moneda usada para comprar
      * @param type Tipo de producto a comprar
