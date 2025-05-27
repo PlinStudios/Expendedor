@@ -74,9 +74,24 @@ public class Expendedor{
                     throw new NoHayProductoException(type);
                 else{
                     //añade monedas
-                    int monedas = (m.getValor() - type.getPrecio()) / 100;
-                    for (int i = 0; i < monedas; i++) {
-                        monVuelto.addElement(new Moneda100());
+                    int monedas = (m.getValor() - type.getPrecio());
+                    while (monedas!=0) {
+                        if(monedas>=1500){
+                            monVuelto.addElement(new Moneda1500());
+                            monedas=monedas-1500;
+                        }
+                        else if(monedas>=1000){
+                            monVuelto.addElement(new Moneda1000());
+                            monedas=monedas-1000;
+                        }
+                        else if(monedas>=500){
+                            monVuelto.addElement(new Moneda500());
+                            monedas=monedas-500;
+                        }
+                        else if(monedas>=100){
+                            monVuelto.addElement(new Moneda100());
+                            monedas=monedas-100;
+                        }
                     }
                 }
             } else {
