@@ -4,6 +4,8 @@ import Logica.Monedas.*;
 import Logica.Productos.*;
 import Logica.myExceptions.*;
 
+import java.util.ArrayList;
+
 /**Logica.Expendedor que guarda productos y permite comprarlos
  */
 public class Expendedor{
@@ -98,4 +100,20 @@ public class Expendedor{
     public Moneda getVuelto(){
         return monVuelto.getElement();
     }
+
+    public Deposito getCoca(){
+        return coca;
+    }
+    public Deposito getFanta(){
+        return fanta;
+    }
+    public Deposito getSprite(){
+        return sprite;
+    }public Deposito getSnickers(){
+        return snickers;
+    }public Deposito getSuper8(){
+        return super8;
+    }
+
+
 }

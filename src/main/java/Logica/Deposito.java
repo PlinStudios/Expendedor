@@ -26,5 +26,8 @@ public class Deposito<T>{
             return null;
         return al.remove(0);
     }
+    public ArrayList getDeposito(){
+        return al;
+    }
 }
 
