@@ -27,11 +27,11 @@ public class PanelExpendedor extends JPanel {
 
         int d=10;
         int h=75;
-        depositos.add(new PanelProducto(10,d,300,h,coca));
-        depositos.add(new PanelProducto(10,2*d+h,300,h,sprite));
-        depositos.add(new PanelProducto(10,2*(d+h)+d,300,h,fanta));
-        depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers));
-        depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8));
+        depositos.add(new PanelProducto(10,d,300,h,coca,1));
+        depositos.add(new PanelProducto(10,2*d+h,300,h,sprite,2));
+        depositos.add(new PanelProducto(10,2*(d+h)+d,300,h,fanta,3));
+        depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers,4));
+        depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,5));
 
         vuelto = new PanelVuelto(300-h,5*(d+h)+d,h,h);
         producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h);
