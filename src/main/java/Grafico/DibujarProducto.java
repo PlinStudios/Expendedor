@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 public class DibujarProducto extends JComponent {
     private int h,w;
     private BufferedImage image;
+    boolean active=true;
     public DibujarProducto(int w, int h, int img){
         image=null;
         this.w=w;
@@ -26,9 +27,13 @@ public class DibujarProducto extends JComponent {
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(new Color(50,50,50));
         g.fillRect(0, 0, w, h);
-        if (image != null) {
+        if (image != null && active) {
             g2d.drawImage(image, 0, 0, w, h, this);
         }
+    }
+
+    public void setActive(boolean active){
+        this.active=active;
     }
 }
 
