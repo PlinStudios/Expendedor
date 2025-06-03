@@ -1,5 +1,6 @@
 package Grafico;
 
+import Logica.Deposito;
 import Logica.Expendedor;
 import Logica.Productos.*;
 
@@ -17,13 +18,13 @@ public class PanelExpendedor extends JPanel {
         this.setBackground(new Color(200,200,200));
         this.setSize(100,100);
 
-        exp=new Expendedor(5);
+        exp=new Expendedor(4);
         depositos = new ArrayList<>();
-        ArrayList<Producto> coca=exp.getCoca().getDeposito();
-        ArrayList<Producto> sprite=exp.getSprite().getDeposito();
-        ArrayList<Producto> fanta=exp.getFanta().getDeposito();
-        ArrayList<Producto> snickers=exp.getSnickers().getDeposito();
-        ArrayList<Producto> super8=exp.getSuper8().getDeposito();
+        Deposito<Producto> coca=exp.getCoca();
+        Deposito<Producto> sprite=exp.getSprite();
+        Deposito<Producto> fanta=exp.getFanta();
+        Deposito<Producto> snickers=exp.getSnickers();
+        Deposito<Producto> super8=exp.getSuper8();
 
         int d=10;
         int h=75;
