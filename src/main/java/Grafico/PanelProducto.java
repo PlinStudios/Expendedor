@@ -33,11 +33,14 @@ public class PanelProducto extends PanelDeposito implements MouseListener{
             this.add(comida);
             x1++;
         }
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         deposito.rellenarDeposito(5);
+        this.revalidate();
+        this.repaint();
     }
 
     @Override
