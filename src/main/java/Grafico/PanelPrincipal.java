@@ -1,14 +1,18 @@
 package Grafico;
 
+import Logica.Expendedor;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
     private PanelExpendedor exp;
+    private Expendedor expp;
     public PanelPrincipal () {
-        exp = new PanelExpendedor();
-        com = new PanelComprador();
+        expp=new Expendedor(5);
+        exp = new PanelExpendedor(expp);
+        com = new PanelComprador(expp,exp);
         this.setBackground(Color.white);
         this.setLayout(new GridLayout(1,2));
         this.add(exp);

@@ -47,11 +47,10 @@ public class Deposito<T>{
         try {
             Class<?> clazz = classes[type];
             Constructor<?> constructor = clazz.getDeclaredConstructor(int.class);
-            if (al.size() <= max) {
-                while (al.size() <= max) {
-                    Object instance = constructor.newInstance(50+100*type+add);
+            if (al.size() < max) {
+                while (al.size() < max) {
+                    Object instance = constructor.newInstance(150+100*type+add);
                     T producto=(T) instance;
-                    System.out.println(producto);
                     al.add(producto);
                     add++;
                 }
