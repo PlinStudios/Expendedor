@@ -18,7 +18,7 @@ public class PanelExpendedor extends JPanel {
         this.setBackground(new Color(200,200,200));
         this.setSize(100,100);
 
-        exp=new Expendedor(4);
+        exp=new Expendedor(5);
         depositos = new ArrayList<>();
         Deposito<Producto> coca=exp.getCoca();
         Deposito<Producto> sprite=exp.getSprite();
@@ -33,6 +33,7 @@ public class PanelExpendedor extends JPanel {
         depositos.add(new PanelProducto(10,2*(d+h)+d,300,h,fanta,3));
         depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers,4));
         depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,5));
+
 
         vuelto = new PanelVuelto(300-h,5*(d+h)+d,h,h);
         producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h);
