@@ -8,20 +8,25 @@ public class DibujarProducto extends JComponent {
     private int h,w;
     private BufferedImage image;
     boolean active=true;
-    public DibujarProducto(int w, int h, int img){
+    public DibujarProducto(int w, int h, int type){
         image=null;
         this.w=w;
         this.h=h;
+        setImage(type);
+    }
+
+    public void setImage(int type){
         try {
-            if(img==1){image = ImageIO.read(new File("src/main/resources/Coca.png"));}
-            else if(img==2){image = ImageIO.read(new File("src/main/resources/Sprite.png"));}
-            else if(img==3){image = ImageIO.read(new File("src/main/resources/Fanta.png"));}
-            else if(img==5){image = ImageIO.read(new File("src/main/resources/Super8.png"));}
-            else if(img==4){image = ImageIO.read(new File("src/main/resources/Snickers.png"));}
+            if(type==1){image = ImageIO.read(new File("src/main/resources/Coca.png"));}
+            else if(type==2){image = ImageIO.read(new File("src/main/resources/Sprite.png"));}
+            else if(type==3){image = ImageIO.read(new File("src/main/resources/Fanta.png"));}
+            else if(type==5){image = ImageIO.read(new File("src/main/resources/Super8.png"));}
+            else if(type==4){image = ImageIO.read(new File("src/main/resources/Snickers.png"));}
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
