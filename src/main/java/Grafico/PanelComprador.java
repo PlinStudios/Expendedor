@@ -33,8 +33,8 @@ public class PanelComprador extends JPanel {
         //buttons.add(new Button( String.format("<html>CocaCola<br/>$%d</html>",Precios.COCA.getPrecio())));
         buttons.add(new Button("Fanta $"+Precios.FANTA.getPrecio()));
         buttons.add(new Button("Sprite $"+Precios.SPRITE.getPrecio()));
-        buttons.add(new Button("Snickers $"+Precios.SNICKERS.getPrecio()));
         buttons.add(new Button("Super8 $"+Precios.SUPER8.getPrecio()));
+        buttons.add(new Button("Snickers $"+Precios.SNICKERS.getPrecio()));
         for (int i=0; i<5; i++) {
             this.add(buttons.get(i));
         }

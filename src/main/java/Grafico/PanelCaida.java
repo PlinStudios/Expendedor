@@ -27,9 +27,9 @@ public class PanelCaida extends JPanel{
             type = 2;
         } else if (producto == "fanta") {
             type = 3;
-        } else if (producto == "super8") {
-            type = 4;
         } else if (producto == "snickers") {
+            type = 4;
+        } else if (producto == "super8") {
             type = 5;
         }
 
