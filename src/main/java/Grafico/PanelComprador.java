@@ -26,15 +26,15 @@ public class PanelComprador extends JPanel {
         this.setSize(100,100);
         this.exp=exp;
         this.setLayout(new GridLayout(3,2));
+        ArrayList<Precios> tipo=new ArrayList<Precios>(Arrays.asList(Precios.COCA,Precios.FANTA,Precios.SPRITE,Precios.SNICKERS,Precios.SUPER8));
         //botones para comprar
         buttons = new ArrayList<>();
-        buttons.add(new Button("CocaCola"));
-        ArrayList<Precios> tipo=new ArrayList<Precios>(Arrays.asList(Precios.COCA,Precios.FANTA,Precios.SPRITE,Precios.SNICKERS,Precios.SUPER8));
-
-        buttons.add(new Button("Fanta"));
-        buttons.add(new Button("Sprite"));
-        buttons.add(new Button("Snickers"));
-        buttons.add(new Button("Super8"));
+        buttons.add(new Button("CocaCola $"+Precios.COCA.getPrecio()));
+        //buttons.add(new Button( String.format("<html>CocaCola<br/>$%d</html>",Precios.COCA.getPrecio())));
+        buttons.add(new Button("Fanta $"+Precios.FANTA.getPrecio()));
+        buttons.add(new Button("Sprite $"+Precios.SPRITE.getPrecio()));
+        buttons.add(new Button("Snickers $"+Precios.SNICKERS.getPrecio()));
+        buttons.add(new Button("Super8 $"+Precios.SUPER8.getPrecio()));
         for (int i=0; i<5; i++) {
             this.add(buttons.get(i));
         }
@@ -48,7 +48,7 @@ public class PanelComprador extends JPanel {
                         panel.revalidate();
                         panel.repaint();}
                     catch(NoHayProductoException|PagoIncorrectoException| PagoInsuficienteException w){
-                        System.out.println(w);
+                        JOptionPane.showMessageDialog(null, w, "Excepción", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }});
         }
