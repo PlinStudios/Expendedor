@@ -45,6 +45,7 @@ public class PanelComprador extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     try{
                         cmp=new Comprador(new Moneda1500(), tipo.get(j),exp);
+                        panel.setCaida(cmp.queConsumiste());
                         panel.revalidate();
                         panel.repaint();}
                     catch(NoHayProductoException|PagoIncorrectoException| PagoInsuficienteException w){

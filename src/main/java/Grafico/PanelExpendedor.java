@@ -13,6 +13,7 @@ public class PanelExpendedor extends JPanel {
     private PanelVuelto vuelto;
     private PanelCaida producto;
     private Expendedor exp;
+    private String caida;
 
     public PanelExpendedor(Expendedor exp){
         this.setBackground(new Color(200,200,200));
@@ -34,7 +35,7 @@ public class PanelExpendedor extends JPanel {
         depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,5));
 
         vuelto = new PanelVuelto(300-h,5*(d+h)+d,h,h);
-        producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h);
+        producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h,caida);
         this.setLayout(null);
         for (int i=0; i<5; i++){
             this.add(depositos.get(i));
@@ -42,9 +43,19 @@ public class PanelExpendedor extends JPanel {
         this.add(vuelto);
         this.add(producto);
     }
+    public void setCaida(String caida){
+        int d=10;
+        int h=75;
+        this.caida=caida;
+        producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h,caida);
+        producto.revalidate();
+        producto.repaint();
+    }
 
+    public String getff(){return caida;}
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
         //depositos.get(0).paintComponent(g);
     }
+
 }
