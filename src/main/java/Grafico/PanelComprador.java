@@ -2,7 +2,7 @@ package Grafico;
 
 import Logica.Comprador;
 import Logica.Expendedor;
-import Logica.Monedas.Moneda1500;
+import Logica.Monedas.*;
 import Logica.Productos.Precios;
 import Logica.myExceptions.NoHayProductoException;
 import Logica.myExceptions.PagoIncorrectoException;
@@ -20,12 +20,14 @@ public class PanelComprador extends JPanel {
     private PanelMonedero monedero;
     private Expendedor exp;
     private Comprador cmp;
+    private Moneda efectivo;
 
     public PanelComprador(Expendedor exp, PanelExpendedor panel){
         this.setBackground(new Color(100,100,100));
         this.setSize(100,100);
         this.exp=exp;
         this.setLayout(new GridLayout(3,2));
+        efectivo=null;
         ArrayList<Precios> tipo=new ArrayList<Precios>(Arrays.asList(Precios.COCA,Precios.FANTA,Precios.SPRITE,Precios.SNICKERS,Precios.SUPER8));
         //botones para comprar
         buttons = new ArrayList<>();
@@ -35,16 +37,19 @@ public class PanelComprador extends JPanel {
         buttons.add(new Button("Sprite $"+Precios.SPRITE.getPrecio()));
         buttons.add(new Button("Super8 $"+Precios.SUPER8.getPrecio()));
         buttons.add(new Button("Snickers $"+Precios.SNICKERS.getPrecio()));
+        monedero=new PanelMonedero();
+        efectivo=monedero.getEfectivo();
         for (int i=0; i<5; i++) {
             this.add(buttons.get(i));
         }
+        this.add(monedero);
         for(int i=0;i<5;i++){
             int j=i;
             buttons.get(i).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try{
-                        cmp=new Comprador(new Moneda1500(), tipo.get(j),exp);
+                        cmp=new Comprador(efectivo, tipo.get(j),exp);
                         panel.setCaida(cmp.queConsumiste());
                         panel.revalidate();
                         panel.repaint();}
@@ -54,8 +59,6 @@ public class PanelComprador extends JPanel {
                 }});
         }
 
-        monedero=new PanelMonedero();
-        this.add(monedero);
 
     }
 

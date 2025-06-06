@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class PanelProducto extends PanelDeposito implements MouseListener{
-    ArrayList<DibujarProducto> dibujos;
+    private ArrayList<DibujarProducto> dibujos;
     int img;
     private ArrayList<Producto> Productos;
     private Deposito<Producto> deposito;

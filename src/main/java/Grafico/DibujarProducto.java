@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class DibujarProducto extends JComponent {
     private int h,w;
     private BufferedImage image;
-    boolean active=true;
+    private boolean active=true;
 
     public DibujarProducto(int w, int h, int type){
         image=null;
