@@ -19,6 +19,7 @@ public class DibujarMoneda extends JComponent implements MouseListener {
     private ArrayList<Moneda> monedero;
     private Moneda efectivo;
     private int cantidad;
+    private JLabel texto=new JLabel("inicio");
 
     public DibujarMoneda(int w, int h, ArrayList<Moneda> monederito){
         image=null;
@@ -52,7 +53,7 @@ public class DibujarMoneda extends JComponent implements MouseListener {
 
         if (image != null) {
             g2d.drawImage(image, 0, 0, w, h-15,this);
-            JLabel texto = new JLabel("x"+this.cantidad);
+            texto.setText("x"+this.cantidad);
             texto.setOpaque(true);
             texto.setBackground(new Color(50,50,50));
             texto.setForeground(Color.BLUE);
@@ -71,6 +72,7 @@ public class DibujarMoneda extends JComponent implements MouseListener {
             efectivo = monedero.get((cantidad-1));
             this.monedero.remove(efectivo);
             this.cantidad--;
+            texto.setText("x"+cantidad);
             this.revalidate();
             this.repaint();
         }
