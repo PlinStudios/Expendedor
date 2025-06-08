@@ -9,6 +9,7 @@ import Logica.myExceptions.*;
 public class Comprador{
     private String sonido;
     private int vuelto=0;
+    private Producto mySnack;
 
     /**Hace una compra a un Logica.Expendedor, pagando con una Moneda para conseguir un Producto y retira el vuelto
      *
@@ -21,7 +22,7 @@ public class Comprador{
      */
     public Comprador(Moneda m, Precios cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         try {
-            Producto mySnack = exp.comprarProducto(m, cualProducto);
+            mySnack = exp.comprarProducto(m, cualProducto);
             if (mySnack != null)
                 sonido = mySnack.consumir();
 
@@ -59,5 +60,8 @@ public class Comprador{
      */
     public String queConsumiste(){
         return sonido;
+    }
+    public Producto queProducto(){
+        return mySnack;
     }
 }
