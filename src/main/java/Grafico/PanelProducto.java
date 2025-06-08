@@ -20,7 +20,6 @@ public class PanelProducto extends PanelDeposito implements MouseListener{
         addMouseListener(this);
         setLayout(null);
         this.img=img;
-        this.Productos=Productos;
         dibujos=new ArrayList<>();
 
         int x1=0;
