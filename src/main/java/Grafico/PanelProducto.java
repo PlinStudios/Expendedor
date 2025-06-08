@@ -86,7 +86,7 @@ public class PanelProducto extends PanelDeposito implements MouseListener, Mouse
             this.revalidate();
         }
 
-        if(index>=0 & Productos.size()>=index) {prod = Productos.get(index);}
+        if(index>=0 & Productos.size()>index) {prod = Productos.get(index);}
 
         if(prod!=null) {this.setToolTipText(prod.getSerie() + "");}
         else{this.setToolTipText(null);}
