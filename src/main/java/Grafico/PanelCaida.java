@@ -1,5 +1,7 @@
 package Grafico;
 
+import Logica.Productos.Producto;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -7,6 +9,7 @@ import java.awt.event.MouseListener;
 
 public class PanelCaida extends JPanel implements MouseListener {
     private DibujarProducto comida;
+    private Producto prod;
     public PanelCaida(int x, int y, int w, int h){
         setLayout(null);
         this.setBackground(new Color(103, 151, 141));
@@ -20,8 +23,11 @@ public class PanelCaida extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
-    public void setType(String producto){
+    public void setType(Producto pro){
         int type = 0;
+        prod=pro;
+        String producto =null;
+        if(pro!=null){producto=pro.consumir();}
         if (producto==null) {
             comida.setActive(false);
             return;
@@ -59,7 +65,11 @@ public class PanelCaida extends JPanel implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        if(prod!=null) {this.setToolTipText(prod.getSerie() + "");}
+        else{this.setToolTipText(null);}
+        ToolTipManager.sharedInstance().setInitialDelay(0);
+        this.revalidate();
+        this.repaint();
     }
 
     @Override

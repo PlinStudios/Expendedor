@@ -7,10 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 
-public class PanelProducto extends PanelDeposito implements MouseListener{
+public class PanelProducto extends PanelDeposito implements MouseListener, MouseMotionListener {
     private ArrayList<DibujarProducto> dibujos;
     int img;
     private ArrayList<Producto> Productos;
@@ -18,6 +19,7 @@ public class PanelProducto extends PanelDeposito implements MouseListener{
     public PanelProducto(int x, int y, int w, int h, Deposito deposito, int img){
         super(x,y,w,h);
         addMouseListener(this);
+        addMouseMotionListener(this);
         setLayout(null);
         this.img=img;
         dibujos=new ArrayList<>();
@@ -50,9 +52,47 @@ public class PanelProducto extends PanelDeposito implements MouseListener{
     public void mouseReleased(MouseEvent e) {
 
     }
-
     @Override
     public void mouseEntered(MouseEvent e) {
+
+    }
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        Producto prod=null;
+        int index=-1;
+        if(6<=e.getX() & e.getX()<=54 & 10<=e.getY() & e.getY()<=65){
+            index=0;
+            this.revalidate();
+        }
+        else if(66<=e.getX() & e.getX()<=114 & 10<=e.getY() & e.getY()<=65){
+            index=1;
+            this.revalidate();
+        }
+        else if(126<=e.getX() & e.getX()<=174 & 10<=e.getY() & e.getY()<=65){
+            index=2;
+            this.revalidate();
+        }
+        else if(186<=e.getX() & e.getX()<=234 & 10<=e.getY() & e.getY()<=65){
+            index=3;
+            this.revalidate();
+        }
+        else if(246<=e.getX() & e.getX()<=294 & 10<=e.getY() & e.getY()<=65){
+            index=4;
+            this.revalidate();
+        }
+
+        if(index>=0 & Productos.size()>=index) {prod = Productos.get(index);}
+
+        if(prod!=null) {this.setToolTipText(prod.getSerie() + "");}
+        else{this.setToolTipText(null);}
+        ToolTipManager.sharedInstance().setInitialDelay(0);
+        this.revalidate();
+        this.repaint();
 
     }
 
@@ -60,6 +100,8 @@ public class PanelProducto extends PanelDeposito implements MouseListener{
     public void mouseExited(MouseEvent e) {
 
     }
+
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

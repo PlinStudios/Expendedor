@@ -50,7 +50,7 @@ public class PanelComprador extends JPanel {
                     try{
                         efectivo=monedero.getEfectivo();
                         cmp=new Comprador(efectivo, tipo.get(j),exp);
-                        panel.setCaida(cmp.queConsumiste());
+                        panel.setCaida(cmp.queProducto());
                         panel.revalidate();
                         panel.repaint();
                     }
