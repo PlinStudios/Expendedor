@@ -19,7 +19,7 @@ public class Deposito<T>{
         monedas = new Class[]{Moneda100.class, Moneda500.class, Moneda1000.class, Moneda1500.class};
     }
 
-    /** Ingresa un elemento
+    /** Ingresa un elemento y almacena su tipo
      *
      * @param b Elemento a ingresar
      */

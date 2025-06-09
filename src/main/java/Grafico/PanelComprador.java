@@ -22,6 +22,11 @@ public class PanelComprador extends JPanel {
     private Comprador cmp;
     private Moneda efectivo;
 
+    /**
+     *
+     * @param exp expendedor del que comprará cosas
+     * @param panel panel del expendedor del que comprará cosas
+     */
     public PanelComprador(Expendedor exp, PanelExpendedor panel){
         this.setBackground(new Color(100,100,100));
         this.setSize(100,100);
@@ -69,6 +74,10 @@ public class PanelComprador extends JPanel {
 
     }
 
+    /**
+     *
+     * @return panel que contiene al monedero
+     */
     public PanelMonedero getPanelMonedero() {
         return monedero;
     }

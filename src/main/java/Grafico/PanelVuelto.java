@@ -7,11 +7,22 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Panel del que se saca el vuelto
+ */
 public class PanelVuelto extends PanelDeposito implements MouseListener {
     private DibujarMoneda dibujo;
     private Expendedor exp;
     private Moneda moneda=null;
     private PanelMonedero monedero;
+
+    /**
+     * @param x posición x del panel
+     * @param y posición y del panel
+     * @param w ancho del panel
+     * @param h alto del panel
+     * @param exp expendedor del que se recible el vuelto
+     */
     public PanelVuelto(int x,int y,int w,int h, Expendedor exp){
         super(x,y,w,h);
         setLayout(null);
@@ -27,6 +38,10 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         addMouseListener(this);
     }
 
+    /**
+     *
+     * @param precio valor de la moneda que define imagen a desplegar
+     */
     public void setType(int precio){
         int type = 0;
         if (precio == 100) {
@@ -46,6 +61,9 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         dibujo.setActive(true);
     }
 
+    /**
+     * Obtencion del vuelto
+     */
     public void getVuelto(){
         if (monedero!=null) {
             monedero.addMoneda(moneda);
@@ -58,10 +76,18 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         }
     }
 
+    /**
+     *
+     * @param monedero al que le entregaremos el vuelto
+     */
     public void setPanelMonedero(PanelMonedero monedero){
         this.monedero=monedero;
     }
 
+    /**
+     * si hacemos click nuesto vuelto se guarda, moneda a moneda
+     * @param e evento a ser procesado
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         getVuelto();

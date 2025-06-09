@@ -10,6 +10,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class DibujarMoneda extends DibujarProducto {
+    /**
+     * @param w ancho de la moneda
+     * @param h alto de la moneda
+     * @param type tipo (valor) de moneda
+     */
     public DibujarMoneda(int w, int h, int type) {
         super(w,h,type);
         image=null;
@@ -18,6 +23,10 @@ public class DibujarMoneda extends DibujarProducto {
         setImage(type);
     }
 
+    /**
+     *
+     * @param type dependiendo del numero establece la imagen a desplegar
+     */
     public void setImage(int type){
         try {
             if(type==0){image = ImageIO.read(new File("src/main/resources/Moneda100.png"));}

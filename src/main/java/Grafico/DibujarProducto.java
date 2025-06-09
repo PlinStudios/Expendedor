@@ -4,11 +4,18 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+
 public class DibujarProducto extends JComponent {
     protected int h,w;
     protected BufferedImage image;
     private boolean active=true;
 
+    /**
+     *
+     * @param w ancho del producto
+     * @param h alto del producto
+     * @param type numero que define imagen a mostrar
+     */
     public DibujarProducto(int w, int h, int type){
         image=null;
         this.w=w;
@@ -16,6 +23,10 @@ public class DibujarProducto extends JComponent {
         setImage(type);
     }
 
+    /**
+     *
+     * @param type numero que define imagen a desplegar
+     */
     public void setImage(int type){
         try {
             if(type==1){image = ImageIO.read(new File("src/main/resources/Coca.png"));}
@@ -37,6 +48,10 @@ public class DibujarProducto extends JComponent {
         }
     }
 
+    /**
+     *
+     * @param active si es activo el elemento se hace visible
+     */
     public void setActive(boolean active){
         this.active=active;
     }

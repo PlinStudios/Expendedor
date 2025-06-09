@@ -10,12 +10,24 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-
+/**
+ * Panel con productos disponibles a la compra
+ */
 public class PanelProducto extends PanelDeposito implements MouseListener, MouseMotionListener {
     private ArrayList<DibujarProducto> dibujos;
     int img;
     private ArrayList<Producto> Productos;
     private Deposito<Producto> deposito;
+
+    /**
+     *
+     * @param x posición x del panel
+     * @param y posición y del panel
+     * @param w ancho del panel
+     * @param h alto del panel
+     * @param deposito con productos a mostrar
+     * @param img numero que decide que imagen desplegar
+     */
     public PanelProducto(int x, int y, int w, int h, Deposito deposito, int img){
         super(x,y,w,h);
         addMouseListener(this);
@@ -37,6 +49,10 @@ public class PanelProducto extends PanelDeposito implements MouseListener, Mouse
 
     }
 
+    /**
+     * si se hace click el deposito se llena
+     * @param e evento a ser procesado
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         deposito.rellenarDeposito(5);
@@ -61,6 +77,10 @@ public class PanelProducto extends PanelDeposito implements MouseListener, Mouse
 
     }
 
+    /**
+     * Dependiendo de la posición del mouse, se desplega el número de serie del producto sobre el que está
+     * @param e evento a ser procesado
+     */
     @Override
     public void mouseMoved(MouseEvent e) {
         Producto prod=null;

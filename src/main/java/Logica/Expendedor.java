@@ -6,7 +6,7 @@ import Logica.myExceptions.*;
 
 import java.util.ArrayList;
 
-/**Logica.Expendedor que guarda productos y permite comprarlos
+/**Expendedor que guarda productos y permite comprarlos
  */
 public class Expendedor{
     private Deposito<Producto> coca;
@@ -42,11 +42,10 @@ public class Expendedor{
         }
     }
 
-    /** Compra un producto desde el Logica.Expendedor y genera el vuelto
+    /** Compra un producto desde el Expendedor y genera el vuelto
      *
      * @param m Moneda usada para comprar
      * @param type Tipo de producto a comprar
-     * @return Producto comprado, null si ocurre un error
      * @throws PagoInsuficienteException Si el dinero no es suficiente para comprar el producto
      * @throws PagoIncorrectoException Si se intenta pagar sin una moneda
      * @throws NoHayProductoException Si el producto esta agotado
@@ -156,7 +155,10 @@ public class Expendedor{
         return depositoMonedas;
     }
 
-
+    /**
+     *
+     * @return producto comprado y lo retira
+     */
     public Producto getProducto(){
         Producto myproducto = depositoCaida;
         depositoCaida = null; //retira producto

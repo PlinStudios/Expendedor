@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Expendedor con disitntos productos
+ */
 public class PanelExpendedor extends JPanel {
     private ArrayList<PanelProducto> depositos;
     private PanelDepositoMonedas depositoMonedas;
@@ -15,6 +18,9 @@ public class PanelExpendedor extends JPanel {
     private PanelCaida producto;
     private Expendedor exp;
 
+    /**
+     * @param exp expendedor que estamos representando
+     */
     public PanelExpendedor(Expendedor exp){
         this.setBackground(new Color(200,200,200));
         this.exp=exp;
@@ -47,11 +53,20 @@ public class PanelExpendedor extends JPanel {
         this.add(vuelto);
         this.add(producto);
     }
+
+    /**
+     *
+     * @param caida producto comprado que queremos mostrar
+     */
     public void setCaida(Producto caida){
         producto.setType(caida);
         producto.revalidate();
         producto.repaint();
     }
+
+    /**
+     * se obtiene vuelto
+     */
     public void rollVuelto(){
         vuelto.getVuelto();
 
@@ -59,10 +74,18 @@ public class PanelExpendedor extends JPanel {
         vuelto.repaint();
     }
 
+    /**
+     *
+     * @param monedero monedero del comprador
+     */
     public void setPanelMonedero(PanelMonedero monedero){
         vuelto.setPanelMonedero(monedero);
     }
 
+    /**
+     *
+     * @return Producto comprado
+     */
     public Producto getCaida(){
         return producto.getCaida();
     }

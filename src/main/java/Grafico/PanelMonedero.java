@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * se representa el monedero del comprador
+ */
 public class PanelMonedero extends JPanel {
     private Deposito<Moneda> monedas100;
     private Deposito<Moneda> monedas500;
@@ -39,6 +42,10 @@ public class PanelMonedero extends JPanel {
         este=this;
     }
 
+    /**
+     *
+     * @param m moneda que se agrega al monedero
+     */
     public void addMoneda(Moneda m){
         if (m==null) {
             return;
@@ -56,6 +63,9 @@ public class PanelMonedero extends JPanel {
         this.repaint();
     }
 
+    /**
+     *SE dibujan las monedas y si se apreta un botón el monedero se "llena"
+     */
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
         w=this.getWidth();h=this.getHeight();
@@ -82,6 +92,10 @@ public class PanelMonedero extends JPanel {
         this.add(llenar);
     }
 
+    /**
+     *
+     * @param selection se cambia moneda seleccionada para hacer una compra
+     */
     public void changeSelection(int selection){
         if (this.selection!=-1) {
             //refresca moneda anterior
@@ -98,9 +112,21 @@ public class PanelMonedero extends JPanel {
             pila.repaint();
         }
     }
+
+    /**
+     *
+     * @param type moneda que se quiere saber si está seleccionada
+     * @return si está seleccionada o no
+     */
     public boolean isSelected(int type){
         return type==selection;
     }
+
+    /**
+     *
+     * @param type valor de la pila de monedas
+     * @return tamaño de la pila de monedas
+     */
     public int getPilaSize(int type){
         switch (type){
             case 0:
@@ -115,6 +141,11 @@ public class PanelMonedero extends JPanel {
                 return 0;
         }
     }
+
+    /**
+     *
+     * @return moneda con la cual se hace la compra
+     */
     public Moneda getEfectivo(){
         Moneda out;
         switch (selection){
