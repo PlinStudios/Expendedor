@@ -16,7 +16,7 @@ import static java.util.Collections.sort;
 /**
  * Deposito que almacena las monedas de compras exitosas
  */
-public class PanelDepositoMonedas extends PanelDeposito implements MouseListener {
+public class PanelDepositoMonedas extends PanelDeposito implements MouseListener,MouseMotionListener {
     private ArrayList<DibujarMoneda> dibujos;
     int w,h;
     int img;
@@ -36,6 +36,7 @@ public class PanelDepositoMonedas extends PanelDeposito implements MouseListener
         this.w=w;
         this.h=h;
         addMouseListener(this);
+        addMouseMotionListener(this);
         setLayout(null);
         this.img=img;
         dibujos=new ArrayList<>();
@@ -71,6 +72,35 @@ public class PanelDepositoMonedas extends PanelDeposito implements MouseListener
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    /**
+     * si se pasa por encima de la moneda se muestra numera de serie
+     * @param e evento a ser procesado
+     */
+    @Override
+    public void mouseMoved(MouseEvent e){
+        Moneda money=null;
+        int index=-1;
+        for(DibujarMoneda cashin: dibujos){
+            if(cashin.getX()<=e.getX() & e.getX()<=(cashin.getX()+cashin.getWidth()) & cashin.getY()<=e.getY() & e.getY()<=(cashin.getY()+cashin.getHeight())){
+                index=dibujos.indexOf(cashin);
+            }
+        }
+
+        if(index>=0 & Monedas.size()>index) {money = Monedas.get(index);}
+
+        if(money!=null) {this.setToolTipText(money.getSerie() + "");}
+        else{this.setToolTipText(null);}
+        ToolTipManager.sharedInstance().setInitialDelay(0);
+        this.revalidate();
+        this.repaint();
+
+
+    }
+    @Override
+    public void mouseDragged(MouseEvent e){
 
     }
 

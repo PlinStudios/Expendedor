@@ -3,14 +3,16 @@ package Grafico;
 import Logica.Expendedor;
 import Logica.Monedas.Moneda;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 /**
  * Panel del que se saca el vuelto
  */
-public class PanelVuelto extends PanelDeposito implements MouseListener {
+public class PanelVuelto extends PanelDeposito implements MouseListener, MouseMotionListener {
     private DibujarMoneda dibujo;
     private Expendedor exp;
     private Moneda moneda=null;
@@ -36,6 +38,7 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         this.exp=exp;
 
         addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
     /**
@@ -104,13 +107,33 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
 
     }
 
+    /**
+     * si el mouse pasa por encima de la moneda se despliega numero de serie
+     * @param e evento s der procesado
+     */
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseMoved(MouseEvent e) {
+        if(moneda!=null){
+            this.setToolTipText(moneda.getSerie()+"");}
+        else{this.setToolTipText(null);}
+        ToolTipManager.sharedInstance().setInitialDelay(0);
+        this.revalidate();
+        this.repaint();
 
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e){
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){
 
     }
 
