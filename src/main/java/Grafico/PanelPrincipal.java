@@ -13,6 +13,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         expp=new Expendedor(5);
         exp = new PanelExpendedor(expp);
         com = new PanelComprador(expp,exp);
+        exp.setPanelMonedero(com.getPanelMonedero()); //para que el vuelto se guarde en el monedero
         this.setBackground(Color.white);
         this.setLayout(new GridLayout(1,2));
         this.add(exp);

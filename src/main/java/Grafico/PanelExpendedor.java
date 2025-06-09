@@ -16,7 +16,6 @@ public class PanelExpendedor extends JPanel {
 
     public PanelExpendedor(Expendedor exp){
         this.setBackground(new Color(200,200,200));
-        this.setSize(100,100);
         this.exp=exp;
         depositos = new ArrayList<>();
         Deposito<Producto> coca=exp.getCoca();
@@ -24,14 +23,13 @@ public class PanelExpendedor extends JPanel {
         Deposito<Producto> fanta=exp.getFanta();
         Deposito<Producto> snickers=exp.getSnickers();
         Deposito<Producto> super8=exp.getSuper8();
-
         int d=10;
         int h=75;
         depositos.add(new PanelProducto(10,d,300,h,coca,1));
         depositos.add(new PanelProducto(10,2*d+h,300,h,sprite,2));
         depositos.add(new PanelProducto(10,2*(d+h)+d,300,h,fanta,3));
-        depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers,4));
-        depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,5));
+        depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers,5));
+        depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,4));
 
         vuelto = new PanelVuelto(300-h,5*(d+h)+d,h,h,exp);
         producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h);
@@ -43,9 +41,8 @@ public class PanelExpendedor extends JPanel {
         this.add(vuelto);
         this.add(producto);
     }
-    public void setCaida(String caida){
+    public void setCaida(Producto caida){
         producto.setType(caida);
-
         producto.revalidate();
         producto.repaint();
     }
@@ -56,9 +53,13 @@ public class PanelExpendedor extends JPanel {
         vuelto.repaint();
     }
 
+    public void setPanelMonedero(PanelMonedero monedero){
+        vuelto.setPanelMonedero(monedero);
+    }
+
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
-        //depositos.get(0).paintComponent(g);
+
     }
 
 }

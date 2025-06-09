@@ -8,9 +8,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PanelVuelto extends PanelDeposito implements MouseListener {
-    DibujarMoneda dibujo;
-    Expendedor exp;
-    Moneda moneda=null;
+    private DibujarMoneda dibujo;
+    private Expendedor exp;
+    private Moneda moneda=null;
+    private PanelMonedero monedero;
     public PanelVuelto(int x,int y,int w,int h, Expendedor exp){
         super(x,y,w,h);
         setLayout(null);
@@ -46,12 +47,19 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
     }
 
     public void getVuelto(){
+        if (monedero!=null) {
+            monedero.addMoneda(moneda);
+        }
         moneda = exp.getVuelto();
         if (moneda!=null) {
             setType(moneda.getValor());
         }else {
             dibujo.setActive(false);
         }
+    }
+
+    public void setPanelMonedero(PanelMonedero monedero){
+        this.monedero=monedero;
     }
 
     @Override

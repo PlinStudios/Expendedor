@@ -9,7 +9,8 @@ import Logica.myExceptions.*;
 public class Comprador{
     private String sonido;
     private int vuelto=0;
-    Expendedor exp;
+    private Producto mySnack;
+    private Expendedor exp;
 
     /**Hace una compra a un Logica.Expendedor, pagando con una Moneda para conseguir un Producto y retira el vuelto
      *
@@ -24,7 +25,7 @@ public class Comprador{
         this.exp=exp;
         try {
             exp.comprarProducto(m, cualProducto);
-            Producto mySnack=exp.getProducto();
+            mySnack=exp.getProducto();
             if (mySnack != null)
                 sonido = mySnack.consumir();
             /*
@@ -65,6 +66,10 @@ public class Comprador{
      */
     public int cuantoVuelto(){
         return vuelto;
+    }
+
+    public Producto queProducto(){
+        return mySnack;
     }
 
     /**Que producto se obtuvo de la compra

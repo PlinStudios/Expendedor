@@ -50,7 +50,7 @@ public class PanelComprador extends JPanel {
                     try{
                         efectivo=monedero.getEfectivo();
                         cmp=new Comprador(efectivo, tipo.get(j),exp);
-                        panel.setCaida(cmp.queConsumiste());
+                        panel.setCaida(cmp.queProducto());
                         panel.rollVuelto();
                         panel.revalidate();
                         panel.repaint();
@@ -62,6 +62,10 @@ public class PanelComprador extends JPanel {
         }
 
 
+    }
+
+    public PanelMonedero getPanelMonedero() {
+        return monedero;
     }
 
     public void paintComponent (Graphics g) {
