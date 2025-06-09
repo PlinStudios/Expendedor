@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class PanelExpendedor extends JPanel {
     private ArrayList<PanelProducto> depositos;
+    private PanelDepositoMonedas depositoMonedas;
     private PanelVuelto vuelto;
     private PanelCaida producto;
     private Expendedor exp;
@@ -23,6 +24,8 @@ public class PanelExpendedor extends JPanel {
         Deposito<Producto> fanta=exp.getFanta();
         Deposito<Producto> snickers=exp.getSnickers();
         Deposito<Producto> super8=exp.getSuper8();
+
+        Deposito<Producto> monedas=exp.getDepositoMonedas();
         int d=10;
         int h=75;
         depositos.add(new PanelProducto(10,d,300,h,coca,1));
@@ -31,6 +34,8 @@ public class PanelExpendedor extends JPanel {
         depositos.add(new PanelProducto(10,3*(d+h)+d,300,h,snickers,5));
         depositos.add(new PanelProducto(10,4*(d+h)+d,300,h,super8,4));
 
+        depositoMonedas = new PanelDepositoMonedas(10,6*(d+h)+d,300,h,monedas);
+
         vuelto = new PanelVuelto(300-h,5*(d+h)+d,h,h,exp);
         producto = new PanelCaida(20,5*(d+h)+d,300-h-3*d,h);
 
@@ -38,6 +43,7 @@ public class PanelExpendedor extends JPanel {
         for (int i=0; i<5; i++){
             this.add(depositos.get(i));
         }
+        this.add(depositoMonedas);
         this.add(vuelto);
         this.add(producto);
     }

@@ -133,6 +133,8 @@ public class Expendedor{
         return snickers;
     }public Deposito getSuper8(){
         return super8;
+    }public Deposito getDepositoMonedas(){
+        return depositoMonedas;
     }
 
 
