@@ -3,6 +3,9 @@ package Grafico;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Ventana que contiene nuestro PanelPrincipal con nuestro expendedor y comprador
+ */
 public class Ventana extends JFrame {
     public Ventana(){
         super();

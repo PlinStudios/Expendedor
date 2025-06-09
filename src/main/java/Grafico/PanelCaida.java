@@ -7,9 +7,19 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Panel que despliega objeto comprado
+ */
 public class PanelCaida extends JPanel implements MouseListener {
     private DibujarProducto comida;
     private Producto prod;
+
+    /**
+     * @param x posición x del panel
+     * @param y posición y del panel
+     * @param w ancho del panel
+     * @param h alot del panel
+     */
     public PanelCaida(int x, int y, int w, int h){
         setLayout(null);
         this.setBackground(new Color(103, 151, 141));
@@ -23,6 +33,10 @@ public class PanelCaida extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
+    /**
+     *
+     * @param pro producto comprado que queremos mostrar
+     */
     public void setType(Producto pro){
         int type = 0;
         prod=pro;
@@ -47,6 +61,10 @@ public class PanelCaida extends JPanel implements MouseListener {
         comida.setActive(true);
     }
 
+    /**
+     * si se hace click el objeto es retirado de su panel
+     * @param e evento a procesar
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         setType(null);
@@ -54,6 +72,10 @@ public class PanelCaida extends JPanel implements MouseListener {
         this.repaint();
     }
 
+    /**
+     *
+     * @return producto comprado
+     */
     public Producto getCaida(){return prod;}
 
     @Override
@@ -65,6 +87,10 @@ public class PanelCaida extends JPanel implements MouseListener {
 
     }
 
+    /**
+     * si el mouse entra la zona se despliega número de serie
+     * @param e evento a ser procesado
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
         if(prod!=null) {this.setToolTipText(prod.getSerie() + "");}

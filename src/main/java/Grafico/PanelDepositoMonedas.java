@@ -13,13 +13,24 @@ import java.util.ArrayList;
 
 import static java.util.Collections.sort;
 
-
+/**
+ * Deposito que almacena las monedas de compras exitosas
+ */
 public class PanelDepositoMonedas extends PanelDeposito implements MouseListener {
     private ArrayList<DibujarMoneda> dibujos;
     int w,h;
     int img;
     private ArrayList<Moneda> Monedas;
     private Deposito<Moneda> deposito;
+
+    /**
+     *
+     * @param x posición x del panel
+     * @param y posición y del panel
+     * @param w ancho del panel
+     * @param h alot del panel
+     * @param deposito deposito a representar
+     */
     public PanelDepositoMonedas(int x, int y, int w, int h, Deposito deposito){
         super(x,y,w,h);
         this.w=w;
@@ -34,6 +45,10 @@ public class PanelDepositoMonedas extends PanelDeposito implements MouseListener
 
     }
 
+    /**
+     * si se hace click las monedas se ordenan de menor a mayor
+     * @param e evento a ser procesado
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         sort(Monedas);

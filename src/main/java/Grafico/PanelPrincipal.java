@@ -5,6 +5,9 @@ import Logica.Expendedor;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * PanelExpendedor y PanelComprador se conectan
+ */
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
     private PanelExpendedor exp;
@@ -19,6 +22,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         this.add(exp);
         this.add(com);
     }
+
+    /**
+     * se "dibujan" el expendedor y comprador
+     */
     public void paintComponent (Graphics g) { //todo se dibuja a partir de este método
         super.paintComponent(g); //llama al método paint al que hace override en la super clase
         //el de la super clase solo pinta el fondo (background)

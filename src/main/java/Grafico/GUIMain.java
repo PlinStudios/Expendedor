@@ -7,6 +7,6 @@ public class GUIMain {
     public static void main(String[] args) {
         v = new Ventana();
         v.setSize(new Dimension(640,640));
-        v.setResizable(false);
+        v.setResizable(false);  //no es posible reajustar el tamaño de la ventana
     }
 }
