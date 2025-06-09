@@ -121,17 +121,36 @@ public class Expendedor{
         return monVuelto.getElement();
     }
 
+    /**
+     * @return deposito de CocaCola
+     */
     public Deposito getCoca(){
         return coca;
     }
+
+    /**
+     * @return deposito de Fanta
+     */
     public Deposito getFanta(){
         return fanta;
     }
+
+    /**
+     * @return deposito de Sprite
+     */
     public Deposito getSprite(){
         return sprite;
-    }public Deposito getSnickers(){
+    }
+    /**
+     * @return deposito de Snickers
+     */
+    public Deposito getSnickers(){
         return snickers;
-    }public Deposito getSuper8(){
+    }
+    /**
+     * @return deposito de Super8
+     */
+    public Deposito getSuper8(){
         return super8;
     }public Deposito getDepositoMonedas(){
         return depositoMonedas;

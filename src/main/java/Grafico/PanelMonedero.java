@@ -18,7 +18,7 @@ public class PanelMonedero extends JPanel {
     private ArrayList<DibujarMonedaPila> dibujos;
     private JButton llenar;
     private JPanel este;
-    private int x,y,w,h;
+    private int w,h;
     private int selection;
     public PanelMonedero(){
         this.setBackground(new Color(50,50,50));
@@ -58,7 +58,7 @@ public class PanelMonedero extends JPanel {
 
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
-        x=this.getX();y=this.getY();w=this.getWidth();h=this.getHeight();
+        w=this.getWidth();h=this.getHeight();
         int j=0;
         for(int i=0; i<4; i++){
             if(i>=2){j=1;}

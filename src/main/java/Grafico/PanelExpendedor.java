@@ -63,6 +63,10 @@ public class PanelExpendedor extends JPanel {
         vuelto.setPanelMonedero(monedero);
     }
 
+    public Producto getCaida(){
+        return producto.getCaida();
+    }
+
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
 
