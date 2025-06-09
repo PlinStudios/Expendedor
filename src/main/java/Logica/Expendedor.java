@@ -15,6 +15,9 @@ public class Expendedor{
     private Deposito<Producto> super8;
     private Deposito<Producto> snickers;
     private Deposito<Moneda> monVuelto;
+    private Deposito<Moneda> depositoMonedas;
+
+    private Producto depositoCaida;
 
     /**Crea los depositos para cada producto
      * y los llena con el producto correspondiente
@@ -28,6 +31,7 @@ public class Expendedor{
         super8 = new Deposito<Producto>();
         snickers = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
+        depositoMonedas = new Deposito<Moneda>();
 
         for (int i=0; i<howmany; i++){
             coca.addElement(new CocaCola(100+i));
@@ -47,7 +51,7 @@ public class Expendedor{
      * @throws PagoIncorrectoException Si se intenta pagar sin una moneda
      * @throws NoHayProductoException Si el producto esta agotado
      */
-    public Producto comprarProducto(Moneda m, Precios type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
+    public void comprarProducto(Moneda m, Precios type) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         //devuelve producto
         Producto mySnack=null;
         if (m!=null) {
@@ -76,10 +80,26 @@ public class Expendedor{
                     throw new NoHayProductoException(type);
                 else{
                     //añade monedas
-                    int monedas = (m.getValor() - type.getPrecio()) / 100;
-                    for (int i = 0; i < monedas; i++) {
-                        monVuelto.addElement(new Moneda100());
+                    int monedas = (m.getValor() - type.getPrecio());
+                    while (monedas!=0) {
+                        if(monedas>=1500){
+                            monVuelto.addElement(new Moneda1500());
+                            monedas=monedas-1500;
+                        }
+                        else if(monedas>=1000){
+                            monVuelto.addElement(new Moneda1000());
+                            monedas=monedas-1000;
+                        }
+                        else if(monedas>=500){
+                            monVuelto.addElement(new Moneda500());
+                            monedas=monedas-500;
+                        }
+                        else if(monedas>=100){
+                            monVuelto.addElement(new Moneda100());
+                            monedas=monedas-100;
+                        }
                     }
+                    depositoMonedas.addElement(m);
                 }
             } else {
                 monVuelto.addElement(m);
@@ -89,7 +109,7 @@ public class Expendedor{
             throw new PagoIncorrectoException();
         }
 
-        return mySnack;
+        depositoCaida = mySnack;
     }
 
     /**Sirve para obtener una Moneda del deposito de vuelto,
@@ -116,4 +136,9 @@ public class Expendedor{
     }
 
 
+    public Producto getProducto(){
+        Producto myproducto = depositoCaida;
+        depositoCaida = null; //retira producto
+        return myproducto;
+    }
 }
