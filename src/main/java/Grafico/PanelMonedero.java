@@ -1,19 +1,17 @@
 package Grafico;
 
-import Logica.Deposito;
 import Logica.Monedas.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PanelMonedero extends JPanel {
     private ArrayList<Moneda> monedas100;
     private ArrayList<Moneda> monedas500;
     private ArrayList<Moneda> monedas1000;
     private ArrayList<Moneda> monedas1500;
-    private ArrayList<DibujarMoneda> dibujos;
+    private ArrayList<DibujarMonedaPila> dibujos;
     private int x,y,w,h;
     private int selection;
     public PanelMonedero(){
@@ -34,7 +32,7 @@ public class PanelMonedero extends JPanel {
             monedas1500.add(new Moneda1500());
         }
         for(int i=0; i<4; i++){
-            DibujarMoneda dibujo=new DibujarMoneda(this,100,100,i);
+            DibujarMonedaPila dibujo=new DibujarMonedaPila(this,100,100,i);
             this.add(dibujo);
             dibujos.add(dibujo);
         }
@@ -47,7 +45,7 @@ public class PanelMonedero extends JPanel {
     public void changeSelection(int selection){
         if (this.selection!=-1) {
             //refresca moneda anterior
-            DibujarMoneda pila = dibujos.get(this.selection);
+            DibujarMonedaPila pila = dibujos.get(this.selection);
             pila.revalidate();
             pila.repaint();
         }
@@ -55,7 +53,7 @@ public class PanelMonedero extends JPanel {
         this.selection=selection;
         if (selection!=-1) {
             //refresca moneda actual
-            DibujarMoneda pila = dibujos.get(selection);
+            DibujarMonedaPila pila = dibujos.get(selection);
             pila.revalidate();
             pila.repaint();
         }
@@ -97,7 +95,7 @@ public class PanelMonedero extends JPanel {
                 break;
         }
         if (out!=null) {
-            DibujarMoneda pila = dibujos.get(selection);
+            DibujarMonedaPila pila = dibujos.get(selection);
             pila.revalidate();
             pila.repaint();
             changeSelection(-1);

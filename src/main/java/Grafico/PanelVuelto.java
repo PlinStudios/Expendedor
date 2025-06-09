@@ -1,7 +1,83 @@
 package Grafico;
 
-public class PanelVuelto extends PanelDeposito{
-    public PanelVuelto(int x,int y,int w,int h){
+import Logica.Expendedor;
+import Logica.Monedas.Moneda;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class PanelVuelto extends PanelDeposito implements MouseListener {
+    DibujarMoneda dibujo;
+    Expendedor exp;
+    Moneda moneda=null;
+    public PanelVuelto(int x,int y,int w,int h, Expendedor exp){
         super(x,y,w,h);
+        setLayout(null);
+        this.setBounds(x,y,w,h);
+
+        dibujo = new DibujarMoneda(h,h, 0);
+        dibujo.setBounds(0,0,h, h);
+        dibujo.setActive(false);
+        this.add(dibujo);
+
+        this.exp=exp;
+
+        addMouseListener(this);
+    }
+
+    public void setType(int precio){
+        int type = 0;
+        if (precio == 100) {
+            type = 0;
+        } else if (precio == 500) {
+            type = 1;
+        } else if (precio == 1000) {
+            type = 2;
+        } else if (precio == 1500) {
+            type = 3;
+        }else{
+            dibujo.setActive(false);
+            return;
+        }
+
+        dibujo.setImage(type);
+        dibujo.setActive(true);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        moneda = exp.getVuelto();
+        System.out.println(moneda);
+        if (moneda!=null) {
+            setType(moneda.getValor());
+        }else {
+            dibujo.setActive(false);
+        }
+        this.revalidate();
+        this.repaint();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    public void paintComponent (Graphics g) {
+        super.paintComponent(g);
     }
 }

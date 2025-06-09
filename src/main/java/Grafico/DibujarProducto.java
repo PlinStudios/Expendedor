@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 public class DibujarProducto extends JComponent {
-    private int h,w;
-    private BufferedImage image;
+    protected int h,w;
+    protected BufferedImage image;
     private boolean active=true;
 
     public DibujarProducto(int w, int h, int type){

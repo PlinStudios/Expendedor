@@ -8,20 +8,15 @@ import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
 
-import Logica.Monedas.*;
-
-import static javax.swing.SwingConstants.CENTER;
-
-public class DibujarMoneda extends JComponent implements MouseListener {
+public class DibujarMonedaPila extends JComponent implements MouseListener {
     private int h,w;
     private BufferedImage image;
     int type;
     private PanelMonedero monedero;
     private JLabel texto=new JLabel("inicio");
 
-    public DibujarMoneda(PanelMonedero monedero, int w, int h, int type){
+    public DibujarMonedaPila(PanelMonedero monedero, int w, int h, int type){
         image=null;
         setLayout(null);
         this.w=w;
