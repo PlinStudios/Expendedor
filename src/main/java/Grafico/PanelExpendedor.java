@@ -47,6 +47,10 @@ public class PanelExpendedor extends JPanel {
         producto.repaint();
     }
 
+    public Producto getCaida(){
+        return producto.getCaida();
+    }
+
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
 

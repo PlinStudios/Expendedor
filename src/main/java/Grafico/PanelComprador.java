@@ -47,17 +47,22 @@ public class PanelComprador extends JPanel {
             buttons.get(i).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    try{
-                        efectivo=monedero.getEfectivo();
-                        cmp=new Comprador(efectivo, tipo.get(j),exp);
-                        panel.setCaida(cmp.queProducto());
-                        panel.revalidate();
-                        panel.repaint();
+                        try {
+                            if (panel.getCaida()==null) {
+                                efectivo = monedero.getEfectivo();
+                                cmp = new Comprador(efectivo, tipo.get(j), exp);
+                                panel.setCaida(cmp.queProducto());
+                                panel.revalidate();
+                                panel.repaint();
+                            }
+                            else {
+                                throw new HayProductoSinRecogerException();
+                            }
+                        } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | HayProductoSinRecogerException w) {
+                            JOptionPane.showMessageDialog(null, w, "Excepción", JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
-                    catch(NoHayProductoException|PagoIncorrectoException| PagoInsuficienteException w){
-                        JOptionPane.showMessageDialog(null, w, "Excepción", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                }});
+                });
         }
 
 

@@ -54,6 +54,8 @@ public class PanelCaida extends JPanel implements MouseListener {
         this.repaint();
     }
 
+    public Producto getCaida(){return prod;}
+
     @Override
     public void mousePressed(MouseEvent e) {
     }
