@@ -65,6 +65,16 @@ public class PanelVuelto extends PanelDeposito implements MouseListener, MouseMo
     }
 
     /**
+     * Obtiene el vuelto solo si el pnael esta vacio
+     * asi no se sacan monedas automaticamente, solo con input del usuario
+     */
+    public void rollVuelto(){
+        if (moneda==null){
+            getVuelto();
+        }
+    }
+
+    /**
      * Obtencion del vuelto
      */
     public void getVuelto(){

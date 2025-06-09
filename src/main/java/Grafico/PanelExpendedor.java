@@ -68,7 +68,7 @@ public class PanelExpendedor extends JPanel {
      * se obtiene vuelto
      */
     public void rollVuelto(){
-        vuelto.getVuelto();
+        vuelto.rollVuelto();
 
         vuelto.revalidate();
         vuelto.repaint();

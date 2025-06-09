@@ -37,13 +37,13 @@ public class Comprador{
                     break;
             }*/
         }catch (NoHayProductoException | PagoInsuficienteException | PagoIncorrectoException e){
-            while (true) {
+            /*while (true) {
                 Moneda monedas_vuelto = exp.getVuelto();
                 if (monedas_vuelto != null)
                     vuelto += monedas_vuelto.getValor();
                 else
                     break;
-            }
+            }*/
             throw e;
         }
 

@@ -75,9 +75,10 @@ public class Expendedor{
                         mySnack=null;
                         break;
                 }
-                if (mySnack==null)
+                if (mySnack==null) {
+                    monVuelto.addElement(m);
                     throw new NoHayProductoException(type);
-                else{
+                }else{
                     //añade monedas
                     int monedas = (m.getValor() - type.getPrecio());
                     while (monedas!=0) {

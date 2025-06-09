@@ -66,6 +66,9 @@ public class PanelComprador extends JPanel {
                             }
                         } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | HayProductoSinRecogerException w) {
                             JOptionPane.showMessageDialog(null, w, "Excepción", JOptionPane.INFORMATION_MESSAGE);
+                            panel.rollVuelto();
+                            panel.revalidate();
+                            panel.repaint();
                         }
                     }
                 });
