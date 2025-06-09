@@ -46,6 +46,12 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         dibujo.setActive(true);
     }
 
+    public void rollVuelto(){
+        if (moneda==null){
+            getVuelto();
+        }
+    }
+
     public void getVuelto(){
         if (monedero!=null) {
             monedero.addMoneda(moneda);
