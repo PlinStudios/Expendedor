@@ -49,6 +49,12 @@ public class PanelExpendedor extends JPanel {
         producto.revalidate();
         producto.repaint();
     }
+    public void rollVuelto(){
+        vuelto.getVuelto();
+
+        vuelto.revalidate();
+        vuelto.repaint();
+    }
 
     public void paintComponent (Graphics g) {
         super.paintComponent(g);

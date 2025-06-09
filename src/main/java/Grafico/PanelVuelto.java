@@ -45,15 +45,18 @@ public class PanelVuelto extends PanelDeposito implements MouseListener {
         dibujo.setActive(true);
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
+    public void getVuelto(){
         moneda = exp.getVuelto();
-        System.out.println(moneda);
         if (moneda!=null) {
             setType(moneda.getValor());
         }else {
             dibujo.setActive(false);
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        getVuelto();
         this.revalidate();
         this.repaint();
     }
