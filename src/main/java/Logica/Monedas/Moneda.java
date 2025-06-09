@@ -12,6 +12,11 @@ public abstract class Moneda implements Comparable<Moneda>{
     /**@return una vez instanciado retorna valor de la Moneda*/
     public abstract int getValor();
 
+    /**
+     *
+     * @param m el objeto a comparar.
+     * @return la diferenica entera entre este objeto y el ingresado
+     */
     @Override
     public int compareTo(Moneda m){
         return this.getValor() - m.getValor();

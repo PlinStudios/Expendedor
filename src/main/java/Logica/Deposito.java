@@ -9,12 +9,13 @@ import java.util.ArrayList;
 public class Deposito<T>{
     private ArrayList<T> al;
     private int type;
-    private Class<?>[] classes;
+    private Class<?>[] clases;
     private Class<?>[] monedas;
+    private int marcador=0;
 
     public Deposito(){
         al = new ArrayList<T>();
-        classes = new Class[]{CocaCola.class, Sprite.class, Fanta.class, Super8.class, Snickers.class};
+        clases = new Class[]{CocaCola.class, Sprite.class, Fanta.class, Super8.class, Snickers.class};
         monedas = new Class[]{Moneda100.class, Moneda500.class, Moneda1000.class, Moneda1500.class};
     }
 
@@ -46,16 +47,25 @@ public class Deposito<T>{
             return null;
         return al.remove(0);
     }
+
+    /**
+     * @return ArrayList del deposito
+     */
     public ArrayList getDeposito(){
         return al;
     }
 
+    /** se llena el deposito a la cantidad deseada tomando en cuenta los objetos ya presentes
+     * y generando nuevas instancias de estos
+     * @param max, si la cantidad de elementos en el deposito es menor a este número, este se
+     *             rellena hasta alcanzarlo
+     */
     public void rellenarDeposito(int max){
-        int add=0;
+        int add=marcador;
 
         try {
             if(type<5) {
-                Class<?> clazz = classes[type];
+                Class<?> clazz = clases[type];
                 Constructor<?> constructor = clazz.getDeclaredConstructor(int.class);
                 if (al.size() < max) {
                     while (al.size() < max) {
@@ -65,6 +75,7 @@ public class Deposito<T>{
                         add++;
                     }
                 }
+                marcador=add;
             }
             else{
                 Class<?> clazz = monedas[type-5];

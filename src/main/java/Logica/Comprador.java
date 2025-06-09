@@ -4,14 +4,14 @@ import Logica.Monedas.*;
 import Logica.Productos.*;
 import Logica.myExceptions.*;
 
-/**Hace una solo compra a un Logica.Expendedor
+/**Hace una solo compra a un Expendedor
  */
 public class Comprador{
     private String sonido;
     private int vuelto=0;
     private Producto mySnack;
 
-    /**Hace una compra a un Logica.Expendedor, pagando con una Moneda para conseguir un Producto y retira el vuelto
+    /**Hace una compra a un Expendedor, pagando con una Moneda para conseguir un Producto y retira el vuelto
      *
      * @param m Moneda para pagar
      * @param cualProducto Producto a comprar
@@ -61,6 +61,10 @@ public class Comprador{
     public String queConsumiste(){
         return sonido;
     }
+
+    /**
+     * @return Producto comprado
+     */
     public Producto queProducto(){
         return mySnack;
     }
